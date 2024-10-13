@@ -27,8 +27,8 @@ function App() {
           <button onClick={() => supabase.auth.signOut().then(() => setUser(null))}>
             Sign Out
           </button>
-          <AddItem />
-          <ItemsList />
+          <AddItem user={user} />
+          <ItemsList user={user} />
         </>
       ) : (
         <SignIn setUser={setUser} />

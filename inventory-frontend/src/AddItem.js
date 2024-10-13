@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from './supabaseClient';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const AddItem = ({ user }) => {
   const [name, setName] = useState('');
@@ -48,36 +49,50 @@ const AddItem = ({ user }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Item Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="Electronics">Electronics</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Books">Books</option>
-        <option value="Furniture">Furniture</option>
-      </select>
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <input
-        type="date"
-        placeholder="Date Purchased"
-        value={datePurchased}
-        onChange={(e) => setDatePurchased(e.target.value)}
-      />
-      <input
-        type="file"
-        onChange={(e) => setImage(e.target.files[0])}
-      />
-      <button type="submit">Add Item</button>
+    <form onSubmit={handleSubmit} className="container mt-4">
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Item Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <select className="form-control" value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Books">Books</option>
+          <option value="Furniture">Furniture</option>
+        </select>
+      </div>
+      <div className="form-group">
+        <input
+          type="number"
+          className="form-control"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="date"
+          className="form-control"
+          placeholder="Date Purchased"
+          value={datePurchased}
+          onChange={(e) => setDatePurchased(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="file"
+          className="form-control-file"
+          onChange={(e) => setImage(e.target.files[0])}
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">Add Item</button>
     </form>
   );
 };
