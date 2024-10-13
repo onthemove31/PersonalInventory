@@ -1,0 +1,21 @@
+# Node modules and build artifacts
+node_modules/
+build/
+
+# Logs
+*.log
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+
+# Supabase keys
+supabaseClient.js
+
+# IDE specific files
+.vscode/
+.idea/
